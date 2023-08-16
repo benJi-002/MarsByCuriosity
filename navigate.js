@@ -19,7 +19,7 @@ export default function Navigation({onLayout}) {
                 screenOptions={{headerShown: false}}
             >
                 <Stack.Screen
-                    name='Select Camera and Date'
+                    name='MainScreen'
                     component={MainScreen}
                 />
                 <Stack.Screen
