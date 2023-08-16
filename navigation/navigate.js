@@ -2,9 +2,9 @@ import * as React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 
-import MainScreen from './components/MainScreen';
-import CameraRollScreen from './components/CameraRollScreen';
-import ImageScreen from './components/ImageScreen';
+import MainScreen from '../components/MainScreen';
+import CameraRollScreen from '../components/CameraRollScreen';
+import ImageScreen from '../components/ImageScreen';
 
 const Stack = createStackNavigator();
 

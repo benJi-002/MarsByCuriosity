@@ -4,7 +4,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import * as Font from 'expo-font';
 
 
-import MainStack from './navigate';
+import MainStack from './navigation/navigate';
 
 
 SplashScreen.preventAutoHideAsync();

@@ -15,193 +15,6 @@ import { globalStyle } from '../styles/style';
 
 export default function CameraRollScreen({route, navigation}) {
 
-	const [items, setItems] = useState([
-		{
-			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
-			id: '0000000'
-		},
-		{
-			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
-			id: '0808080808'
-		},
-		{
-			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
-			id: 23452345
-		},
-		{
-			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
-			id: 23452345
-		},
-		{
-			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
-			id: 87907
-		},
-		{
-			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
-			id: 9368
-		},
-		{
-			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
-			id: 1324
-		},
-		{
-			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
-			id: 111111
-		},
-		{
-			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
-			id: 2222
-		},
-		{
-			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
-			id: 33333
-		},
-		{
-			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
-			id: 545454
-		},
-		{
-			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
-			id: 66666
-		},
-		{
-			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
-			id: 8888888
-		},
-		{
-			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
-			id: 77777
-		},
-		{
-			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
-			id: 999999
-		},
-		{
-			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
-			id: 1212121
-		},
-		{
-			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
-			id: 23232332
-		},
-		{
-			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
-			id: 3444343
-		},
-		{
-			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
-			id: 45554455
-		},
-		{
-			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
-			id: 56565656
-		},
-		{
-			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
-			id: 12345
-		},
-		{
-			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
-			id: 12345
-		},
-		{
-			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
-			id: 12345
-		},
-		{
-			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
-			id: 12345
-		},
-		{
-			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
-			id: 12345
-		},
-		{
-			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
-			id: 12345
-		},
-		{
-			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
-			id: 12345
-		},
-		{
-			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
-			id: 12345
-		},
-		{
-			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
-			id: 12345
-		},
-		{
-			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
-			id: 12345
-		},
-		{
-			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
-			id: 12345
-		},
-		{
-			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
-			id: 12345
-		},
-		{
-			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
-			id: 12345
-		},
-		{
-			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
-			id: 12345
-		},
-		{
-			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
-			id: 12345
-		},
-		{
-			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
-			id: 12345
-		},
-		{
-			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
-			id: 12345
-		},
-		{
-			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
-			id: 12345
-		},
-		{
-			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
-			id: 12345
-		},
-		{
-			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
-			id: 12345
-		},
-		{
-			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
-			id: 12345
-		},
-		{
-			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
-			id: 12345
-		},
-		{
-			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
-			id: 12345
-		},
-		{
-			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
-			id: 12345
-		},
-		{
-			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
-			id: 12345
-		},
-		{
-			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
-			id: 12345
-		},
-	]);
-
 	const BackIcon = () => {
 		return (
 			<Svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -229,14 +42,14 @@ export default function CameraRollScreen({route, navigation}) {
 
 			    <FlatGrid
 					itemDimension={100}
-					data={items}
+					data={route.params.items}
 					style={styles.gridView}
 					// staticDimension={300}
 					// fixed
 					spacing={8}
 					renderItem={({ item }) => (
 						<TouchableOpacity
-							onPress={() => navigation.navigate('ImageScreen', item)}
+							onPress={() => navigation.navigate('ImageScreen', {item: item, date: route.params.date})}
 							style={styles.itemContainer}
 						>
 							<Image 

@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import Svg, {Path} from 'react-native-svg';
 import { CommonActions } from '@react-navigation/native';
-import * as Sharing from 'expo-sharing';
+
 
 import { globalStyle } from '../styles/style';
 
@@ -18,8 +18,9 @@ export default function ImageScreen ({route, navigation}) {
 
     const onShare = async (url) => {
         try {
+            console.log(route.params.date)
             const result = await Share.share({
-                message: ('Mars by Curiosity: ' + '\n' + '\n' + url),
+                message: (`Mars by Curiosity - ${route.params.date}: ` + '\n' + '\n' + url),
             });
 
             if (result.action === Share.sharedAction) {
@@ -66,7 +67,7 @@ export default function ImageScreen ({route, navigation}) {
             <View style={styles.header}>
 				<Text style={[globalStyle.subTitle, styles.subTitle]}>Photo ID</Text>
 
-				<Text style={[globalStyle.title, styles.title]}>{route.params.id}</Text>
+				<Text style={[globalStyle.title, styles.title]}>{route.params.item.id}</Text>
 
 				<TouchableOpacity 
 					style={styles.backIcon}
@@ -77,7 +78,7 @@ export default function ImageScreen ({route, navigation}) {
 
 				<TouchableOpacity 
 					style={styles.uploadIcon}
-					onPress={() => onShare(route.params.img)}
+					onPress={() => onShare(route.params.item.img)}
 				>
 					<UploadIcon/>
 				</TouchableOpacity>
@@ -87,7 +88,7 @@ export default function ImageScreen ({route, navigation}) {
                 <Image 
                     style={styles.image}
                     source={{
-                        uri: route.params.img
+                        uri: route.params.item.img
                     }}
                 />
             </View>
