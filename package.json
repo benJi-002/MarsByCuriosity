@@ -39,7 +39,8 @@
     "react-native-super-grid": "^5.0.0",
     "react-native-svg": "13.9.0",
     "react-native-web": "~0.19.6",
-    "yup": "^1.2.0"
+    "yup": "^1.2.0",
+    "expo-sharing": "~11.5.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

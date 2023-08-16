@@ -4,15 +4,40 @@ import {
     View, 
     Text, 
     Image, 
-    TouchableOpacity 
+    TouchableOpacity,
+    Share
 } from 'react-native';
 import Svg, {Path} from 'react-native-svg';
 import { CommonActions } from '@react-navigation/native';
+import * as Sharing from 'expo-sharing';
 
 import { globalStyle } from '../styles/style';
 
 
 export default function ImageScreen ({route, navigation}) {
+
+    const onShare = async (url) => {
+        try {
+            const result = await Share.share({
+                message: ('Mars by Curiosity: ' + '\n' + '\n' + url),
+            });
+
+            if (result.action === Share.sharedAction) {
+                if (result.activityType) {
+                    console.log('shared with activity type of: ', result.activityType)
+                
+                } else {
+                    console.log('shared')
+                }
+            } else if (result.action === Share.dismissedAction) {
+                console.log('dismissede')
+            }
+        }
+
+        catch (error) {
+            console.log(error.message)
+        }
+    }
 
     const BackIcon = () => {
 		return (
@@ -31,6 +56,7 @@ export default function ImageScreen ({route, navigation}) {
             </Svg>
         );
     }
+
 
     return (
 
@@ -51,7 +77,7 @@ export default function ImageScreen ({route, navigation}) {
 
 				<TouchableOpacity 
 					style={styles.uploadIcon}
-					// onPress={() => }
+					onPress={() => onShare(route.params.img)}
 				>
 					<UploadIcon/>
 				</TouchableOpacity>
