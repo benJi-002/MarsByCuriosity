@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
-import { StyleSheet, FlatList, View, Text, Image, TouchableOpacity } from 'react-native';
+import { 
+	StyleSheet, 
+	View, 
+	Text, 
+	Image, 
+	TouchableOpacity 
+} from 'react-native';
 import { FlatGrid } from 'react-native-super-grid';
-import Svg, {Path} from 'react-native-svg'
+import Svg, {Path} from 'react-native-svg';
+import { CommonActions } from '@react-navigation/native';
 
 import { globalStyle } from '../styles/style';
 
@@ -9,58 +16,196 @@ import { globalStyle } from '../styles/style';
 export default function CameraRollScreen({route, navigation}) {
 
 	const [items, setItems] = useState([
-		{img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg'},
-		{img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg'},
-		{img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg'},
-		{img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg'},
-		{img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg'},
-		{img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg'},
-		{img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg'},
-		{img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg'},
-		{img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg'},
-		{img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg'},
-		{img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg'},
-		{img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg'},
-		{img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg'},
-		{img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg'},
-		{img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg'},
-		{img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg'},
-		{img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg'},
-		{img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg'},
-		{img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg'},
-		{img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg'},
-		{img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg'},
-		{img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg'},
-		{img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg'},
-		{img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg'},
-		{img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg'},
-		{img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg'},
-		{img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg'},
-		{img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg'},
-		{img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg'},
-		{img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg'},
-		{img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg'},
-		{img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg'},
-		{img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg'},
-		{img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg'},
-		{img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg'},
-		{img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg'},
-		{img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg'},
-		{img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg'},
-		{img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg'},
-		{img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg'},
-		{img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg'},
-		{img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg'},
-		{img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg'},
-		{img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg'},
-		{img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg'},
-		{img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg'},
+		{
+			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
+			id: '0000000'
+		},
+		{
+			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
+			id: '0808080808'
+		},
+		{
+			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
+			id: 23452345
+		},
+		{
+			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
+			id: 23452345
+		},
+		{
+			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
+			id: 87907
+		},
+		{
+			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
+			id: 9368
+		},
+		{
+			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
+			id: 1324
+		},
+		{
+			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
+			id: 111111
+		},
+		{
+			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
+			id: 2222
+		},
+		{
+			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
+			id: 33333
+		},
+		{
+			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
+			id: 545454
+		},
+		{
+			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
+			id: 66666
+		},
+		{
+			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
+			id: 8888888
+		},
+		{
+			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
+			id: 77777
+		},
+		{
+			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
+			id: 999999
+		},
+		{
+			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
+			id: 1212121
+		},
+		{
+			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
+			id: 23232332
+		},
+		{
+			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
+			id: 3444343
+		},
+		{
+			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
+			id: 45554455
+		},
+		{
+			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
+			id: 56565656
+		},
+		{
+			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
+			id: 12345
+		},
+		{
+			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
+			id: 12345
+		},
+		{
+			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
+			id: 12345
+		},
+		{
+			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
+			id: 12345
+		},
+		{
+			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
+			id: 12345
+		},
+		{
+			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
+			id: 12345
+		},
+		{
+			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
+			id: 12345
+		},
+		{
+			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
+			id: 12345
+		},
+		{
+			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
+			id: 12345
+		},
+		{
+			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
+			id: 12345
+		},
+		{
+			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
+			id: 12345
+		},
+		{
+			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
+			id: 12345
+		},
+		{
+			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
+			id: 12345
+		},
+		{
+			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
+			id: 12345
+		},
+		{
+			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
+			id: 12345
+		},
+		{
+			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
+			id: 12345
+		},
+		{
+			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
+			id: 12345
+		},
+		{
+			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
+			id: 12345
+		},
+		{
+			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
+			id: 12345
+		},
+		{
+			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
+			id: 12345
+		},
+		{
+			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
+			id: 12345
+		},
+		{
+			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
+			id: 12345
+		},
+		{
+			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
+			id: 12345
+		},
+		{
+			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
+			id: 12345
+		},
+		{
+			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
+			id: 12345
+		},
+		{
+			img: 'https://64.media.tumblr.com/7caf8344e8ad8740ead97532784acfbe/tumblr_pp055cmfxb1vk2rpjo1_1280.jpg',
+			id: 12345
+		},
 	]);
 
 	const BackIcon = () => {
 		return (
 			<Svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-				<Path d="M14.5 6.5L10.2071 10.7929C9.81658 11.1834 9.81658 11.8166 10.2071 12.2071L14.5 16.5" stroke="black" strokeWidth="1.5" strokeLinecap="round"/>
+				<Path d="M14.5 6.5L10.2071 10.7929C9.81658 11.1834 9.81658 11.8166 10.2071 12.2071L14.5 16.5" stroke="black" strokeWidth="1.7" strokeLinecap="round"/>
 			</Svg>
 		);
 	}
@@ -76,7 +221,7 @@ export default function CameraRollScreen({route, navigation}) {
 
 				<TouchableOpacity 
 					style={styles.backIcon}
-					onPress={() => navigation.navigate('MainScreen')}
+					onPress={() => navigation.dispatch(CommonActions.goBack())}
 				>
 					<BackIcon/>
 				</TouchableOpacity>
@@ -111,9 +256,10 @@ export default function CameraRollScreen({route, navigation}) {
 const styles = StyleSheet.create({
 
 	main: {
+		paddingTop: 0,
 		paddingRight: 8,
-		paddingLeft: 8,
 		paddingBottom: 0,
+		paddingLeft: 8,
 		backgroundColor: '#DCCEBE',
 	},	
 
@@ -123,7 +269,7 @@ const styles = StyleSheet.create({
 
 	backIcon: {
 		position: 'absolute',
-		top: 60,
+		bottom: 9,
 		left: 9
 	},
 

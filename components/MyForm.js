@@ -145,6 +145,48 @@ export default function MyForm({onUpdateOptions}) {
 
     }
 
+    const DropdownIcon = () => {
+        return (
+            <Svg 
+                width="24" 
+                height="24" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <Path 
+                    d="M7 9L11.2929 13.2929C11.6834 13.6834 12.3166 13.6834 12.7071 13.2929L17 9" 
+                    stroke="black" 
+                    strokeWidth="1.7" 
+                    strokeLinecap="round"
+                />
+            </Svg>
+        );
+    }
+    
+    const CalendarIcon = () => {
+        return (
+            <Svg 
+                width="20" 
+                height="22" 
+                viewBox="0 0 20 22" 
+                fill="none"     
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <Path d="M1.09265 8.40427H18.9166" stroke="#130F26" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/>
+                <Path d="M14.4421 12.3097H14.4514" stroke="#130F26" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/>
+                <Path d="M10.0046 12.3097H10.0139" stroke="#130F26" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/>
+                <Path d="M5.5579 12.3097H5.56717" stroke="#130F26" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/>
+                <Path d="M14.4421 16.1962H14.4514" stroke="#130F26" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/>
+                <Path d="M10.0046 16.1962H10.0139" stroke="#130F26" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/>
+                <Path d="M5.5579 16.1962H5.56717" stroke="#130F26" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/>
+                <Path d="M14.0437 1V4.29078" stroke="#130F26" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/>
+                <Path d="M5.96552 1V4.29078" stroke="#130F26" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/>
+                <Path fillRule="evenodd" clipRule="evenodd" d="M14.2383 2.57919H5.77096C2.83427 2.57919 1 4.21513 1 7.22222V16.2719C1 19.3262 2.83427 21 5.77096 21H14.229C17.175 21 19 19.3546 19 16.3475V7.22222C19.0092 4.21513 17.1842 2.57919 14.2383 2.57919Z" stroke="#130F26" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/>
+            </Svg>
+        );
+    }
+
 
     return (
 
@@ -208,22 +250,7 @@ export default function MyForm({onUpdateOptions}) {
                         dropdownTextStyles={{
                             fontSize: 18
                         }}
-                        arrowicon={
-                            <Svg 
-                                width="24" 
-                                height="24" 
-                                viewBox="0 0 24 24" 
-                                fill="none" 
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <Path 
-                                    d="M7 9L11.2929 13.2929C11.6834 13.6834 12.3166 13.6834 12.7071 13.2929L17 9" 
-                                    stroke="black" 
-                                    strokeWidth="1.5" 
-                                    strokeLinecap="round"
-                                />
-                            </Svg>
-                        }
+                        arrowicon={<DropdownIcon/>}
                     />
                 </View>
             </View>
@@ -251,24 +278,7 @@ export default function MyForm({onUpdateOptions}) {
                         <View>
 
                             <View style={styles.calendarIcon}>
-                                <Svg 
-                                    width="20" 
-                                    height="22" 
-                                    viewBox="0 0 20 22" 
-                                    fill="none"     
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <Path d="M1.09265 8.40427H18.9166" stroke="#130F26" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                                    <Path d="M14.4421 12.3097H14.4514" stroke="#130F26" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                                    <Path d="M10.0046 12.3097H10.0139" stroke="#130F26" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                                    <Path d="M5.5579 12.3097H5.56717" stroke="#130F26" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                                    <Path d="M14.4421 16.1962H14.4514" stroke="#130F26" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                                    <Path d="M10.0046 16.1962H10.0139" stroke="#130F26" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                                    <Path d="M5.5579 16.1962H5.56717" stroke="#130F26" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                                    <Path d="M14.0437 1V4.29078" stroke="#130F26" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                                    <Path d="M5.96552 1V4.29078" stroke="#130F26" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                                    <Path fillRule="evenodd" clipRule="evenodd" d="M14.2383 2.57919H5.77096C2.83427 2.57919 1 4.21513 1 7.22222V16.2719C1 19.3262 2.83427 21 5.77096 21H14.229C17.175 21 19 19.3546 19 16.3475V7.22222C19.0092 4.21513 17.1842 2.57919 14.2383 2.57919Z" stroke="#130F26" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                                </Svg>
+                                <CalendarIcon/>
                             </View>
                             <TextInput
                                 onChangeText={setDateForView}   

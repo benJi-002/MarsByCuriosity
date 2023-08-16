@@ -12,12 +12,14 @@ export default function MainScreen({navigation}) {
 
 	const onUpdateOptions = (camForView, camForGet, dateForView, dateForGet) => {
 
-		navigation.navigate('CameraRollScreen', 
-			{
-				camera: camForView,
-				date: dateForView
-			}
-		)
+		if (camForView || dateForView) {
+			navigation.navigate('CameraRollScreen', 
+				{
+					camera: camForView,
+					date: dateForView
+				}
+			)
+		}
 
 		// console.log(camForGet, dateForGet)
 	
