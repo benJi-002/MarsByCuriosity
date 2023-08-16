@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, FlatList, Image } from 'react-native';
+import { StyleSheet, View, Text, ImageBackground } from 'react-native';
 
 import { globalStyle } from '../styles/style';
 
@@ -8,45 +8,61 @@ import MyForm from './MyForm';
 
 export default function MainScreen({navigation}) {
 
-	const  [options, setOptions] = useState([
-		{
-			camera: '1', 
-			date: '1'
-		}
-	]);
 
 
-	const onUpdateOptions = (camera, dateForGet, dateForView) => {
+	const onUpdateOptions = (camForView, camForGet, dateForView, dateForGet) => {
 
-		// setOptions(data);
 		navigation.navigate('CameraRollScreen', 
 			{
-				camera: camera,
+				camera: camForView,
 				date: dateForView
 			}
 		)
 
-		// console.log(camera, date)
+		// console.log(camForGet, dateForGet)
+	
 	};
+
+
 
 	return (
 
-		<View
-		  	style={globalStyle.main}
+		<ImageBackground
+			style={styles.background}
+			resizeMode='cover'
+			source={require('../assets/backgroundMain.png')}
 		>
+			<View
+				style={styles.formContainer}
+			>
 
-
-			<View style={globalStyle.main}>
+			<Text 
+				style={[globalStyle.title, styles.title]}
+			>
+				Select Camera and Date
+			</Text>
 
 				<MyForm onUpdateOptions={onUpdateOptions}/>
-
 			</View>
-
-		</View>
+		</ImageBackground>
+	
 	);
 
 }
 
 const styles = StyleSheet.create({
-	
+	background: {
+		flex: 1, 
+		justifyContent: "center", 
+		alignItems: "center",
+		padding: 24
+	},
+
+	formContainer: {
+		flex: 1,
+		width: '100%',
+		justifyContent: 'flex-start',
+		alignItems: "center",
+		rowGap: 167
+	}
 });

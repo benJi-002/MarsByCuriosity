@@ -52,7 +52,7 @@ export default function App() {
 
       <MainStack onLayout={onLayoutRootView}/>
 
-	  );
+	);
 
 }
 
