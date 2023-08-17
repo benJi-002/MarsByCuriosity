@@ -18,7 +18,7 @@ export default function ImageScreen ({route, navigation}) {
 
     const onShare = async (url) => {
         try {
-            console.log(route.params.date)
+            
             const result = await Share.share({
                 message: (`Mars by Curiosity - ${route.params.date}: ` + '\n' + '\n' + url),
             });

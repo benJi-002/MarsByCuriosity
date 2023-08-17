@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { StyleSheet, View, Text, ImageBackground } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, View, Text, ImageBackground, Image } from 'react-native';
+import Svg, {G, Circle} from 'react-native-svg'
 
 import { globalStyle } from '../styles/style';
 import useService from '../services/MarsByCuriosityService';
@@ -9,27 +10,43 @@ import MyForm from './MyForm';
 
 export default function MainScreen({navigation}) {
 
+	
 	const [newItemLoading, setNewItemLoading] = useState(false);
 	const [photos, setPhotos] = useState([]);
+	const [params, setParams] = useState([]);
 	
-	const {loading, error, getPhotos} = useService();
+	useEffect(() => {
+		
+		if (!newItemLoading && !loading && params.length !== 0) {
+							
+			navigation.navigate('CameraRollScreen', 
+				{
+					camera: params.camera,
+					date: params.date,
+					items: photos
+				}
+			)
+		}
 
-	const onUpdateOptions = async (camForView, camForGet, dateForView, dateForGet) => {
+	}, [photos, params])
 
+	const {loading, getPhotos} = useService();
+
+	const onUpdateOptions = (camForView, camForGet, dateForView, dateForGet) => {
+
+		
 		if (camForView && dateForView) {
+			
+			setParams(params => (
+				{
+					camera: camForView,
+					date: dateForView
+				}
+			));
 
 			onRequest(dateForGet, camForGet, true)
 
-			console.log(dateForView)
 		
-			navigation.navigate('CameraRollScreen', 
-				{
-					camera: camForView,
-					date: dateForView,
-					items: photos,
-					date: dateForView
-				}
-			)
 		}
 	};
 	
@@ -46,6 +63,16 @@ export default function MainScreen({navigation}) {
 
     }
 
+	const Spinner = () => {
+        return (
+			<Image
+				style={styles.spinner}
+				source={require('../assets/spinner.gif')}
+			/>
+        )
+    }
+
+	const spinner = loading && !newItemLoading ? <Spinner/> : null;
 
 	return (
 
@@ -56,15 +83,19 @@ export default function MainScreen({navigation}) {
 		>
 			<View
 				style={styles.formContainer}
-			>
+				>
 
-			<Text 
-				style={[globalStyle.title, styles.title]}
-			>
-				Select Camera and Date
-			</Text>
+				<Text 
+					style={[globalStyle.title, styles.title]}
+					>
+					Select Camera and Date
+				</Text>
 
+				{spinner}
+				
 				<MyForm onUpdateOptions={onUpdateOptions}/>
+
+
 			</View>
 		</ImageBackground>
 	
@@ -86,5 +117,12 @@ const styles = StyleSheet.create({
 		justifyContent: 'flex-start',
 		alignItems: "center",
 		rowGap: 167
+	},
+
+	spinner: {
+		position: 'absolute',
+		width: 70,
+		height: 70,
+		top: '13%'
 	}
 });

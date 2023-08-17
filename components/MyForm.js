@@ -37,7 +37,7 @@ export default function MyForm({onUpdateOptions}) {
 
             if (Platform.OS === 'android') {
                 toggleDatePicker();
-                setDateForView(formatDateForInput(formatDateForGet(currenDate)));
+                setDateForView(formatDateForView(formatDateForGet(currenDate)));
             }
         } else {
             toggleDatePicker();
@@ -62,7 +62,7 @@ export default function MyForm({onUpdateOptions}) {
         
     }
 
-   const formatDateForInput = (date) => {
+   const formatDateForView = (date) => {
 
         let letterMonth = '';
 

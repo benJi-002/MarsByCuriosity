@@ -23,6 +23,40 @@ export default function CameraRollScreen({route, navigation}) {
 		);
 	}
 
+	const Photos = () => {
+		return (
+			<FlatGrid
+				itemDimension={100}
+				data={route.params.items}
+				style={styles.gridView}
+				// staticDimension={300}
+				// fixed
+				spacing={8}
+				renderItem={({ item }) => (
+					<TouchableOpacity
+						onPress={() => navigation.navigate('ImageScreen', {item: item, date: route.params.date})}
+						style={styles.itemContainer}
+					>
+						<Image 
+							style={styles.image}
+							source={{
+								uri: item.img
+							}}
+						/>
+					</TouchableOpacity>
+				)}
+			/>
+		)
+	}
+
+	const EmptyLabel = () => {
+		return (
+			<Text style={[globalStyle.light, styles.emptyLabel]}>
+				Sorry, unfortunately no photos were taken with this camera on this day
+			</Text>
+		)
+	}
+
 	return (
 		<View
 			style={[globalStyle.main, styles.main]}
@@ -40,27 +74,8 @@ export default function CameraRollScreen({route, navigation}) {
 				</TouchableOpacity>
 			</View>
 
-			    <FlatGrid
-					itemDimension={100}
-					data={route.params.items}
-					style={styles.gridView}
-					// staticDimension={300}
-					// fixed
-					spacing={8}
-					renderItem={({ item }) => (
-						<TouchableOpacity
-							onPress={() => navigation.navigate('ImageScreen', {item: item, date: route.params.date})}
-							style={styles.itemContainer}
-						>
-							<Image 
-								style={styles.image}
-								source={{
-									uri: item.img
-								}}
-							/>
-						</TouchableOpacity>
-					)}
-				/>
+			{route.params.items.length !== 0 ? <Photos/> : <EmptyLabel/>}
+
 		</View>
 	);
 
@@ -92,14 +107,20 @@ const styles = StyleSheet.create({
 		borderRadius: 8,
  	},
 
+	emptyLabel: {
+		fontSize: 22,
+		textAlign: 'center',
+		marginTop: '70%'
+	},
 
-	 gridView: {
+
+	gridView: {
 		marginTop: 16,
 		flex: 1,
-	  },
+	},
 
-	  itemContainer: {
+	itemContainer: {
 		justifyContent: 'flex-end',
 		height: 110,
-	  }
+	}
 });
