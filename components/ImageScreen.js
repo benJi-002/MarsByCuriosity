@@ -100,15 +100,18 @@ export default function ImageScreen ({route, navigation}) {
 const styles = StyleSheet.create({
 
     main: {
-        paddingTop: 0,
+        paddingTop: 44,
 		paddingRight: 16,
 		paddingBottom: 34,
 		paddingLeft:16,
 		backgroundColor: '#000',
 	},	
 
+    header: {
+		height: 43
+	},
+
     subTitle: {
-        marginTop: 42,
         color: '#fff'
     },
     
@@ -130,13 +133,13 @@ const styles = StyleSheet.create({
     },
 
     imgContainer: {
-        height: '87%'
+        marginTop: 16,
+        height: '92%'
     },
 
     image: {
 		width: '100%',
 		height: '100%',
-		marginTop: 16,
         borderRadius: 8
  	}
 });

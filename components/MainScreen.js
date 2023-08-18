@@ -33,7 +33,6 @@ export default function MainScreen({navigation}) {
 	const {loading, getPhotos} = useService();
 
 	const onUpdateOptions = (camForView, camForGet, dateForView, dateForGet) => {
-
 		
 		if (camForView && dateForView) {
 			
@@ -108,7 +107,10 @@ const styles = StyleSheet.create({
 		flex: 1, 
 		justifyContent: "center", 
 		alignItems: "center",
-		padding: 24
+		paddingTop: 54,
+        paddingRight: 24,
+        paddingLeft: 24,
+        paddingBottom: 24
 	},
 
 	formContainer: {
@@ -116,13 +118,13 @@ const styles = StyleSheet.create({
 		width: '100%',
 		justifyContent: 'flex-start',
 		alignItems: "center",
-		rowGap: 167
+		rowGap: 178
 	},
 
 	spinner: {
 		position: 'absolute',
 		width: 70,
 		height: 70,
-		top: '13%'
+		top: '9%'
 	}
 });

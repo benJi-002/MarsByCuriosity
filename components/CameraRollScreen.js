@@ -84,7 +84,7 @@ export default function CameraRollScreen({route, navigation}) {
 const styles = StyleSheet.create({
 
 	main: {
-		paddingTop: 0,
+		paddingTop: 42,
 		paddingRight: 8,
 		paddingBottom: 0,
 		paddingLeft: 8,
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
 	},	
 
 	header: {
-		height: 88
+		height: 46
 	},
 
 	backIcon: {

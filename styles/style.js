@@ -4,7 +4,10 @@ export const globalStyle = StyleSheet.create({
     
     main: {
         flex: 1,
-        padding: 24
+        paddingTop: 54,
+        paddingRight: 24,
+        paddingLeft: 24,
+        paddingBottom: 24
     },
 
     bold: {
@@ -20,7 +23,6 @@ export const globalStyle = StyleSheet.create({
         color: '#000',
         fontFamily: 'd-bold',
         textAlign: 'center',
-        marginTop: 42,
         lineHeight: 22,
     },
 
