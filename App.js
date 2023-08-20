@@ -1,5 +1,6 @@
 import React, {useState, useEffect, useCallback} from 'react';
 import { StyleSheet, View } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
 import * as SplashScreen from 'expo-splash-screen';
 import * as Font from 'expo-font';
 
@@ -49,9 +50,11 @@ export default function App() {
 
 
 	return (
+		<>
+			<MainStack onLayout={onLayoutRootView}/>
 
-      <MainStack onLayout={onLayoutRootView}/>
-
+			<StatusBar backgroundColor='#DCCEBE' translucent={true}/>
+		</>
 	);
 
 }
